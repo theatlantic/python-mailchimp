@@ -8,11 +8,11 @@ class Category(BaseApi):
         super(Category, self).__init__(*args, **kwargs)
         self.endpoint = 'lists'
 
-    def all(self, list_id):
+    def all(self, list_id, **kwargs):
         """
         returns first 10 interest categories, or Group Titles, for a list.
         """
-        return self._mc_client._get(url=self._build_path(list_id, 'interest-categories'))
+        return self._mc_client._get(url=self._build_path(list_id, 'interest-categories'), **kwargs)
 
     def create(self, list_id, data):
         """
